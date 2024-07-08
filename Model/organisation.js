@@ -1,7 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
   const Organisation = sequelize.define("organisations", {
     orgId: {
-      type: Sequelize.STRING,
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
       unique: true,
       allowNull: false,
     },
@@ -16,4 +17,3 @@ module.exports = (sequelize, Sequelize) => {
 
   return Organisation;
 };
-  

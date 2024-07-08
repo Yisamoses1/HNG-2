@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const db = require("../Model");
 const { v4: uuidv4 } = require("uuid");
 
-
 exports.register = async (req, res) => {
   const { firstName, lastName, email, password, phone } = req.body;
   try {
@@ -64,8 +63,8 @@ exports.login = async (req, res) => {
       return res.status(401).json({ message: "Authentication failed" });
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
       return res.status(401).json({ message: "Authentication failed" });
     }
 
