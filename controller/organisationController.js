@@ -9,7 +9,7 @@ exports.getSingleOrganisation = async (req, res) => {
       include: db.User,
     });
     if (!organisation) {
-      return res.status(404).json({ msg: "Organisation not found" });
+      return res.status(404).json({ message: "Organisation not found" });
     }
     res.status(200).json({ status: "success", data: organisation });
   } catch (error) {
@@ -29,7 +29,7 @@ exports.addUserToOrganisation = async (req, res) => {
     const user = await db.User.findOne({ where: { userId } });
 
     if (!organisation || !user) {
-      return res.status(404).json({ msg: "Organisation or User not found" });
+      return res.status(404).json({ message: "Organisation or User not found" });
     }
 
     await organisation.addUser(user);

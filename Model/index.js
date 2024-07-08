@@ -8,14 +8,14 @@ const sequelize = new Sequelize(
   {
     host: config.host,
     dialect: config.dialect,
-    port: config.port, // Ensure port is included
+    port: config.port, 
     dialectOptions: {
       ssl: {
         require: true,
-        rejectUnauthorized: false, // You might need to adjust this depending on your server's SSL setup
+        rejectUnauthorized: false, 
       },
     },
-    logging: console.log, // Enable Sequelize logging for debugging
+    logging: console.log, 
   }
 );
 
