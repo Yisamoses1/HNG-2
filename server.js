@@ -5,6 +5,7 @@ const cors = require("cors")
 
 const userRoutes = require("./Routes/userRoute");
 const organisationRoutes = require("./Routes/organsationRoute");
+const getUser = require("./Routes/getUserRoute")
 
 const app = express();
 app.use(cors());
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/auth", userRoutes);
+app.use("/api", getUser)
 app.use("/api/organisations", organisationRoutes);
 
 const port = process.env.PORT;
